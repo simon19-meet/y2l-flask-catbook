@@ -22,5 +22,14 @@ def create():
         name=request.form['catname']
         create_cat(name)
         return render_template("response.html",n=name)
+
+@app.route('/cat',methods=['GET','POST'])
+def upvote(id):
+    if request.method == 'POST':
+        vote(id)
+        return render_template("home.html")
+    
+    
+
 if __name__ == '__main__':
    app.run(debug = True)
