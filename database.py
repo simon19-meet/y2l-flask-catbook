@@ -24,4 +24,5 @@ def get_cat_by_id(id):
 def vote(id):
     cat=get_cat_by_id(id)
     cat.votes+=1
-    return cat
+    session.commit()
+    
